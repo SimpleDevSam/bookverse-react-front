@@ -60,10 +60,10 @@ function Search() {
       <Title>Let's get started?</Title>
       <Subtitle>Find your book at our shelf</Subtitle>
       <Input
-        placeholder="Type down your next book"
+        placeholder="TESTE"
         onBlur={(event) => {
           const inputText = event.target.value;
-          const result = books.filter((book) => book.name.includes(inputText.toString()));
+          const result = books.filter((book) => book.name && book.name.includes(inputText.toString()));
           setSearchedBook(result);
         }}
       />
