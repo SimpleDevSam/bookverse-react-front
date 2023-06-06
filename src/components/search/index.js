@@ -59,6 +59,8 @@ function Search() {
     await postFavorite(id);
     alert(`Book with id:${id} was inserted!`);
   }
+
+
   console.log("Fetched array");
   console.log(books);
   return (
