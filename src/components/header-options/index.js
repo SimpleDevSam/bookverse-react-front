@@ -5,6 +5,7 @@ const textOptions = ["Categorys", "Favorites", "Shelf"];
 
 const HeaderOptionsComponent = styled.ul`
   display: flex;
+  text-decoration: none;
 `;
 const HeaderOptionComponent = styled.li`
   font-size: 16px;
@@ -15,17 +16,22 @@ const HeaderOptionComponent = styled.li`
   height: 100%;
   padding: 0 5px;
   cursor: pointer;
+  text-decoration: none;
+`;
+
+const ModifiedLink = styled(Link)`
+  text-decoration: none;
 `;
 
 function HeaderOptions() {
   return (
     <HeaderOptionsComponent>
       {textOptions.map((text) => (
-        <Link to={`/${text.toLowerCase()}`}>
+        <ModifiedLink to={`/${text.toLowerCase()}`}>
           <HeaderOptionComponent>
             <p>{text}</p>
           </HeaderOptionComponent>
-        </Link>
+        </ModifiedLink>
       ))}
     </HeaderOptionsComponent>
   );

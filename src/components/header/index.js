@@ -8,14 +8,19 @@ const HeaderComponent = styled.header`
   background-color: #ffffff;
   display: flex;
   justify-content: center;
+  text-decoration:none;
+`;
+
+const ModifiedLink = styled(Link)`
+text-decoration: none;
 `;
 
 function Header() {
   return (
     <HeaderComponent>
-      <Link to="/">
+      <ModifiedLink to="/">
         <Logo />
-      </Link>
+      </ModifiedLink>
       <HeaderOptions />
       <HeaderIcons />
     </HeaderComponent>
