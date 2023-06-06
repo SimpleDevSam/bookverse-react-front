@@ -7,6 +7,16 @@ const favAPI = axios.create({baseURL:"http://localhost:8000/favorites"})
     return response.data
 }
 
+async function postFavorite (id) {
+    await favAPI.post(`/${id}`)
+}
+
+async function deleteFavorite (id) {
+    await favAPI.delete(`/${id}`)
+}
+
 export {
-    getFavorites
+    getFavorites,
+    postFavorite,
+    deleteFavorite
 }

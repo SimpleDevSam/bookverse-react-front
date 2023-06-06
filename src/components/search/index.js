@@ -3,6 +3,7 @@ import Input from "../input";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getBooks } from "../../services/books";
+import { postFavorite } from "../../services/favorites";
 
 const SearchComponent = styled.section`
   background-image: linear-gradient(90deg, #c9f0ff, #eafffd);
@@ -53,6 +54,11 @@ function Search() {
     const booksAPI = await getBooks();
     setBooks(booksAPI);
   }
+
+  async function insertFavorite(id) {
+    await postFavorite(id);
+    alert(`Book with id:${id} was inserted!`);
+  }
   console.log("Fetched array");
   console.log(books);
   return (
@@ -63,13 +69,15 @@ function Search() {
         placeholder="Type down your next book"
         onBlur={(event) => {
           const inputText = event.target.value;
-          const result = books.filter(book => book.name.includes(inputText.toString()));
+          const result = books.filter((book) =>
+            book.name.includes(inputText.toString())
+          );
           setSearchedBook(result);
         }}
       />
-      {searchedBook.map((book) => (
-        <Result>
-          <p>{book.name}</p>
+      {searchedBook.map((favorite) => (
+        <Result onClick={() => insertFavorite(favorite.id)}>
+          <p>{favorite.name}</p>
         </Result>
       ))}
     </SearchComponent>
