@@ -63,14 +63,13 @@ function Search() {
         placeholder="Type down your next book"
         onBlur={(event) => {
           const inputText = event.target.value;
-          const result = books.filter((book) => book.name.includes(inputText.toString()));
+          const result = books.filter(book => book.name.includes(inputText.toString()));
           setSearchedBook(result);
         }}
       />
       {searchedBook.map((book) => (
         <Result>
           <p>{book.name}</p>
-          <img src={book.src} alt={book.name} />
         </Result>
       ))}
     </SearchComponent>
