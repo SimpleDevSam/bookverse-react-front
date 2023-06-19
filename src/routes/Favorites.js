@@ -19,7 +19,7 @@ const Result = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 5px 0;
   cursor: pointer;
   text-align: center;
   padding: 0 100px;

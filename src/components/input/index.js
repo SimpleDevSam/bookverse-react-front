@@ -8,7 +8,7 @@ border-radius: 50px;
 width: 200px;
 color: #6B5E62;
 font-size: 16px;
-margin-bottom: 10px;
+margin-bottom: 30px;
 
 &::placeholder {
         color: #6B5E62;

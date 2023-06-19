@@ -10,9 +10,22 @@ const SearchComponent = styled.section`
   color: #6b5e62;
   text-align: center;
   padding: 85px 0;
-  height: 270px;
+  height: 350px;
   width: 100%;
 `;
+
+const ResultsContainer = styled.div`
+  display: flex;
+  background-image: linear-gradient(90deg, #c9f0ff, #eafffd);
+  flex-direction:column;
+  color: #6b5e62;
+  text-align: center;
+  padding: 20px 0;
+  height: 200px;
+  width: 100%;
+  overflow: scroll;
+`;
+
 const Title = styled.h2`
   color: #6b5e62;
   font-size: 36px;
@@ -30,12 +43,10 @@ const Result = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  height:100px;
   cursor: pointer;
   p {
     width: 200px;
-  }
-  img {
-    width: 100px;
   }
   &:hover {
     border: 1px solid #6b5e62;
@@ -56,34 +67,41 @@ function Search() {
   }
 
   async function insertFavorite(id) {
-    await postFavorite(id);
-    alert(`Book with id:${id} was inserted!`);
+    try {
+      await postFavorite(id);
+      alert(`Book with id:${id} was inserted!`);
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        alert(`Error: Book with id:${id} already exists!`);
+      } else {
+        alert("An error occurred while inserting the book.");
+      }
+    }
   }
-
-
-  console.log("Fetched array");
-  console.log(books);
   return (
     <SearchComponent>
       <Title>Let's get started?</Title>
       <Subtitle>Find your book at our shelf</Subtitle>
+
       <Input
         placeholder="Type down your next book"
         onBlur={(event) => {
           const inputText = event.target.value;
+          console.log(inputText + inputText.length)
           const result = books.filter((book) =>
             book.name.includes(inputText.toString())
           );
           setSearchedBook(result);
         }}
       />
-      {searchedBook.map((favorite) => (
-        <Result onClick={() => insertFavorite(favorite.id)}>
-          <p>{favorite.name}</p>
-        </Result>
-      ))}
+      <ResultsContainer>
+        {searchedBook.map((favorite) => (
+          <Result onClick={() => insertFavorite(favorite.id)}>
+            <p>{favorite.name}</p>
+          </Result>
+        ))}
+      </ResultsContainer>
     </SearchComponent>
   );
 }
-
 export default Search;
