@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const textOptions = ["Categorys", "Favorites", "Shelf"];
+const textOptions = ["Categories", "Favorites", "Shelf"];
 
 const HeaderOptionsComponent = styled.ul`
   display: flex;

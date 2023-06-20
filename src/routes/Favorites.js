@@ -42,6 +42,12 @@ const Title = styled.h2`
   padding-top: 35px;
 `;
 
+const NoFavoritesText = styled.p`
+  color: #6B5E62;
+  font-size: 16px;
+  text-align: center;
+`;
+
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
@@ -72,7 +78,7 @@ function Favorites() {
                   <img src={bookImg} />
                 </Result>
               ))
-            : null}
+            : <NoFavoritesText>You don't have any favorite books yet :/ </NoFavoritesText>}
         </ResultContainer>
       </div>
     </AppContainer>

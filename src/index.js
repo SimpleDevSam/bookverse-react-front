@@ -7,6 +7,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/header/index"
 import Favorites from './routes/Favorites';
 import Home from './routes/Home';
+import Categories from './routes/Categories';
 
 
 const GlobalStyle = createGlobalStyle `
@@ -37,6 +38,7 @@ root.render(
       <Routes>
         <Route path='/favorites' element ={<Favorites />}/>
         <Route path='/' element ={<Home />}/>
+        <Route path='/categories' element ={<Categories />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
