@@ -93,7 +93,11 @@ function Search() {
 
   async function fetchBooks() {
     const booksAPI = await getBooks();
-    setBooks(booksAPI);
+    const sortedBooks = booksAPI.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setBooks(sortedBooks);
+    setSearchedBook(sortedBooks);
   }
 
   async function insertFavorite(id) {
@@ -127,7 +131,7 @@ function Search() {
       <ResultsContainer>
         {searchedBook.map((favorite) => (
           <Result>
-            <img width={70} height={80} src={bookImg} alt="bookimg" />
+            <img width={70} height={80} src={bookImg} alt="plusimg" />
             <p>{favorite.name}</p>
             <PlusImage width={35} height={35} src={PlusImg}  onClick={() => insertFavorite(favorite.id)} alt="minusimg" />
           </Result>

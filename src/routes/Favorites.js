@@ -95,7 +95,10 @@ function Favorites() {
 
   async function fetchFavorites() {
     const APIfavorites = await getFavorites();
-    setFavorites(APIfavorites);
+    const sortedFavs = APIfavorites.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setFavorites(sortedFavs);
   }
 
   async function removeFavorite(id) {
@@ -116,8 +119,10 @@ function Favorites() {
           {favorites.length
             ? favorites.map((favorite) => (
                 <Result >
-                  <p>{favorite.name}</p>
-                  <BookImage src={bookImg} />
+                  <div>
+                    <BookImage src={bookImg} />
+                    <p>{favorite.name}</p>
+                  </div>  
                   <MinusImage src={MinusImg}  onClick={()=> removeFavorite(favorite.id)} />
                 </Result>
               ))
