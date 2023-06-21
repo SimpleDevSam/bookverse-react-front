@@ -90,7 +90,7 @@ function Category() {
       alert(`Book with id:${id} was inserted!`);
     } catch (error) {
       if (error.response && error.response.status === 409) {
-        alert(`Error: Book with id:${id} already exists!`);
+        alert(`Error: Book with id:${id} is already in favorites :)`);
       } else {
         alert("An error occurred while inserting the book.");
       }
