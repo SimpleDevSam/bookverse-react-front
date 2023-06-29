@@ -95,10 +95,12 @@ function Favorites() {
 
   async function fetchFavorites() {
     const APIfavorites = await getFavorites();
-    const sortedFavs = APIfavorites.sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-    setFavorites(sortedFavs);
+    // const sortedFavs = APIfavorites.sort((a, b) =>
+    //   a.name.localeCompare(b.name)
+    // );
+    // setFavorites(sortedFavs);
+    console.log(APIfavorites)
+    setFavorites(APIfavorites);
   }
 
   async function removeFavorite(id) {
@@ -110,7 +112,6 @@ function Favorites() {
   useEffect(() => {
     fetchFavorites();
   }, []);
-
   return (
     <AppContainer>
       <FavContainer>
