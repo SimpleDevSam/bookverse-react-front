@@ -98,6 +98,8 @@ function Search() {
     );
     setBooks(sortedBooks);
     setSearchedBook(sortedBooks);
+    // setBooks(booksAPI)
+    // setSearchedBook(booksAPI)
   }
 
   async function insertFavorite(id) {
