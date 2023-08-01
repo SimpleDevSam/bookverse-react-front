@@ -9,6 +9,7 @@ import Favorites from './routes/Favorites';
 import Home from './routes/Home';
 import Categories from './routes/Categories';
 import Login from './routes/Login';
+import SignUp from './routes/SignUp';
 
 
 const GlobalStyle = createGlobalStyle `
@@ -41,6 +42,7 @@ root.render(
         <Route path='/' element ={<Home />}/>
         <Route path='/categories' element ={<Categories />}/>
         <Route path='/login' element ={<Login />}/>
+        <Route path='/signup' element ={<SignUp />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

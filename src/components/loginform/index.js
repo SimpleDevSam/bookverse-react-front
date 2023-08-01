@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {Routes, Route, useNavigate} from 'react-router-dom';
 const LoginBox = styled.div `
 
   display: flex;
@@ -53,11 +53,11 @@ border: 1px solid #6B5E62;
 background: transparent;
 margin-top:0px;
 border: 0.5px solid #6B5E62;
-padding: 5px 3%;
+padding: 10px 3%;
 border-radius: 5px;
 width:100%;
 color: #6B5E62;
-font-size: 16px;
+font-size: 12px;
 margin-bottom:;
 
 &::placeholder {
@@ -73,11 +73,28 @@ width:100%;
 margin-top: 30px;
 border-radius:10px;
 height:40px;
-border:none
+border:none;
+cursor:pointer
+`
+const SignUpButton = styled.button `
+background: #6b5e62;
+font-size:16px;
+color:white;
+width:50%;
+margin-bottom: 20px;
+border-radius:10px;
+height:30px;
+border:none;
+cursor:pointer
 `
 
 
 function LoginContainer () {
+  const navigate = useNavigate();
+  const NavigateToSignUp = () => {
+    navigate("/signup")
+  }
+
     return (
         <LoginBox>
             <LoginForm>
@@ -89,6 +106,8 @@ function LoginContainer () {
                 </FormDiv>
                 <SubmitButton>Login</SubmitButton>
             </LoginForm>
+            <LoginLabels>Don't you have an account?</LoginLabels>
+            <SignUpButton onClick={NavigateToSignUp}>Sign Up!</SignUpButton>
         </LoginBox>
         
     )
