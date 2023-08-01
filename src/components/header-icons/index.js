@@ -1,6 +1,7 @@
 import profile from '../../images/perfil.svg'
 import bag from '../../images/sacola.svg'
 import styled from 'styled-components'
+//import {redirect} from "react-router-dom"
 
 const HeaderIconsComponent = styled.ul `
     display: flex;
@@ -16,10 +17,17 @@ const HeaderIcon = styled.li `
 const icons = [profile, bag]
 
 function HeaderIcons() {
+
+/*    const HandleClick = (iconName) => {
+        if (iconName ==="profile") {
+            redirect("/login");
+        }
+    }
+*/
     return (
         <HeaderIconsComponent>
             { icons.map( (icon) => (
-              <HeaderIcon><img src={icon}></img></HeaderIcon>
+              <HeaderIcon><img /*onClick={()=>HandleClick(icon)}*/ src={icon}></img></HeaderIcon>
             )) }
         </HeaderIconsComponent>
     )

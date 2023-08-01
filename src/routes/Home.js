@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Search from "../components/search";
+import Header from "../components/header/index";
 import LastReleasedBooks from "../components/releases";
 
 const AppContainer = styled.div`
@@ -11,6 +12,7 @@ const AppContainer = styled.div`
 function Home() {
   return (
     <AppContainer>
+      <Header />
       <Search />
       <LastReleasedBooks />
     </AppContainer>

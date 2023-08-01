@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Category from "../components/category";
-import Header from "../components/header/index";
-
+import LoginContainer from "../components/loginform";
+import LoginHeader from "../components/loginheader";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -9,16 +8,14 @@ const AppContainer = styled.div`
   background-image: linear-gradient(90deg, #c9f0ff, #eafffd); 
 `;
 
-
-
-function Categories() {
+function Login() {
   return (
     <AppContainer>
-      <Header />
-      <Category/>
+      <LoginHeader/>
+      <LoginContainer/>
     </AppContainer>
     
   );
 }
 
-export default Categories;
+export default Login;

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { deleteFavorite, getFavorites } from "../services/favorites";
 import bookImg from "../images/livro.png";
 import MinusImg from "../images/minus.png"
+import Header from "../components/header/index";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -114,6 +115,7 @@ function Favorites() {
   }, []);
   return (
     <AppContainer>
+      <Header />
       <FavContainer>
         <Title>Your favorite books:</Title>
         <ResultsContainer>

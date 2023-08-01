@@ -4,10 +4,11 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Header from "./components/header/index"
+
 import Favorites from './routes/Favorites';
 import Home from './routes/Home';
 import Categories from './routes/Categories';
+import Login from './routes/Login';
 
 
 const GlobalStyle = createGlobalStyle `
@@ -34,11 +35,12 @@ root.render(
   <React.StrictMode>
     <GlobalStyle/>
     <BrowserRouter>
-      <Header />
+      
       <Routes>
         <Route path='/favorites' element ={<Favorites />}/>
         <Route path='/' element ={<Home />}/>
         <Route path='/categories' element ={<Categories />}/>
+        <Route path='/login' element ={<Login />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const favAPI = axios.create({baseURL:"https://35.247.212.57:8000/favorites"})
+const favAPI = axios.create({baseURL:"http://localhost:8000/favorites"})
 
  async function getFavorites() {
     const response = await favAPI.get('/')
