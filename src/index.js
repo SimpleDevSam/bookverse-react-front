@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import Favorites from './routes/Favorites';
 import Home from './routes/Home';
@@ -36,13 +36,13 @@ root.render(
   <React.StrictMode>
     <GlobalStyle/>
     <BrowserRouter>
-      
       <Routes>
         <Route path='/favorites' element ={<Favorites />}/>
-        <Route path='/' element ={<Home />}/>
+        <Route path='/home' element ={<Home />}/>
         <Route path='/categories' element ={<Categories />}/>
         <Route path='/login' element ={<Login />}/>
         <Route path='/signup' element ={<SignUp />}/>
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

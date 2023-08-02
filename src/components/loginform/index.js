@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import React, { useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { GetAllUsers } from "../../services/users";
+
 const LoginBox = styled.div `
 
   display: flex;
@@ -17,13 +20,11 @@ const LoginBox = styled.div `
   height: 40%;
   width: 30%;
 `
-
 const LoginForm = styled.form `
 
 widht:100%;
 
 `
-
 const FormDiv= styled.div`
 display:flex;
 flex-direction:column;
@@ -40,7 +41,6 @@ color: #6b5e62;
   margin-bottom:30px;
   margin-top:0;
   `
-
 const LoginLabels = styled.p`
 color: #6b5e62;
   font-size: 18px;
@@ -90,19 +90,46 @@ cursor:pointer
 
 
 function LoginContainer () {
+
   const navigate = useNavigate();
   const NavigateToSignUp = () => {
     navigate("/signup")
   }
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+      
+    event.preventDefault();
+    const data = {email, password};     
+    try {
+      const  users = await GetAllUsers();
+      const filteredArray = users.filter((user) => user.email === data.email && user.password === data.password)
+
+      if(filteredArray.length === 0) {
+        alert("Email/Password are not matching :( Please confirm again")
+
+      } else {
+        setEmail("");
+        setPassword("");
+        navigate("/home")
+      }
+
+    } catch(error) {
+     console.log(error)
+    }
+}
+  
+
     return (
         <LoginBox>
-            <LoginForm>
+            <LoginForm onSubmit={handleSubmit}>
                 <FormDiv>
-                <LoginLabels type="email">Email:</LoginLabels>
-                <LoginInputs></LoginInputs>
-                <LoginLabels type="password">Password:</LoginLabels>
-                <LoginInputs></LoginInputs>               
+                <LoginLabels >Email:</LoginLabels>
+                <LoginInputs type="email" value={email} onChange={(e) => setEmail(e.target.value)}></LoginInputs>
+                <LoginLabels >Password:</LoginLabels>
+                <LoginInputs type="password" value={password} onChange={(e) => setPassword(e.target.value)}></LoginInputs>               
                 </FormDiv>
                 <SubmitButton>Login</SubmitButton>
             </LoginForm>

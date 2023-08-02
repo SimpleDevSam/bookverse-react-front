@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import {postUser} from "../../services/users"
+import {PostUser} from "../../services/users"
 import React, { useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+
 
 const LoginBox = styled.div `
 
@@ -87,7 +87,7 @@ function SignUpContainer () {
       event.preventDefault();
       const data = { name, email, password };     
       try {
-        const  response = await postUser(data);
+        const  response = await PostUser(data);
         setName("");
         setEmail("");
         setPassword("");
