@@ -4,6 +4,7 @@ import { deleteFavorite, getFavorites } from "../services/favorites";
 import bookImg from "../images/livro.png";
 import MinusImg from "../images/minus.png"
 import Header from "../components/header/index";
+import { useNavigate } from "react-router-dom";
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -94,13 +95,15 @@ cursor: pointer;
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
+  const navigate = useNavigate()
+
+  function NavigateToBook(bookId) {
+    navigate(`../book/${bookId}`)
+  }
+
   async function fetchFavorites() {
-    const APIfavorites = await getFavorites();
-    // const sortedFavs = APIfavorites.sort((a, b) =>
-    //   a.name.localeCompare(b.name)
-    // );
-    // setFavorites(sortedFavs);
-    console.log(APIfavorites)
+    const userKey = localStorage.getItem('userid');
+    const APIfavorites = await getFavorites(userKey);
     setFavorites(APIfavorites);
   }
 
@@ -124,7 +127,7 @@ function Favorites() {
                 <Result >
                   <div>
                     <BookImage src={bookImg} />
-                    <p>{favorite.name}</p>
+                    <p onClick={() => NavigateToBook(favorite.bookid)}>{favorite.name}</p>
                   </div>  
                   <MinusImage src={MinusImg}  onClick={()=> removeFavorite(favorite.id)} />
                 </Result>

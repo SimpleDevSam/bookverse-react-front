@@ -7,6 +7,12 @@ const booksAPI = axios.create({baseURL:"http://localhost:8000/books"})
     return response.data
 }
 
+async function getBook(id) {
+    const response = await booksAPI.get(`/${id}`)
+    return response.data
+}
+
 export {
-    getBooks
+    getBooks,
+    getBook
 }

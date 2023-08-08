@@ -10,6 +10,7 @@ import Home from './routes/Home';
 import Categories from './routes/Categories';
 import Login from './routes/Login';
 import SignUp from './routes/SignUp';
+import BookPage from './routes/BookPage';
 
 
 const GlobalStyle = createGlobalStyle `
@@ -43,6 +44,7 @@ root.render(
         <Route path='/login' element ={<Login />}/>
         <Route path='/signup' element ={<SignUp />}/>
         <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/book/:id" element={<BookPage/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

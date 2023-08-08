@@ -105,12 +105,25 @@ function LoginContainer () {
     const data = {email, password};     
     try {
       const  users = await GetAllUsers();
-      const filteredArray = users.filter((user) => user.email === data.email && user.password === data.password)
+      console.log(users)
+      const singleUserArray = users.filter((user) => user.email === data.email && user.password === data.password)
 
-      if(filteredArray.length === 0) {
+      if(singleUserArray.length === 0) {
         alert("Email/Password are not matching :( Please confirm again")
 
       } else {
+        const firstName = singleUserArray[0].name.split(' ')[0]
+        const lowFirstName = firstName.toLowerCase()
+        const UpFLFirstName = lowFirstName[0].toUpperCase() + lowFirstName.slice(1)
+        const email = singleUserArray[0].email
+        const id = singleUserArray[0].id
+
+        localStorage.setItem('username', UpFLFirstName)
+
+        localStorage.setItem('email', email)
+
+        localStorage.setItem('userid',id)
+        
         setEmail("");
         setPassword("");
         navigate("/home")
@@ -119,7 +132,7 @@ function LoginContainer () {
     } catch(error) {
      console.log(error)
     }
-}
+}   
   
 
     return (

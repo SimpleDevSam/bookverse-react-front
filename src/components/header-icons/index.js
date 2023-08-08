@@ -7,6 +7,8 @@ const HeaderIconsComponent = styled.ul `
     display: flex;
     align-items: center;
     gap: 50px;
+    margin-top:25px;
+    padding:0px
 `
 
 const HeaderIcon = styled.li `

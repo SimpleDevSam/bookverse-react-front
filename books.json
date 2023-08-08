@@ -1,0 +1,52 @@
+[
+  {
+    "bookid": 1,
+    "book": "Mediting Life",
+    "author": "Padma Santen",
+    "category": "Self-Help;Budism",
+    "abstract": "Meditando a Vida é inédito e insuperável. Padma Samten, físico quântico gaúcho, primeiro lama brasileiro da linhagem Ningma, conduz-nos, por um caminho agradável e cheio de referências comuns a todos nós, aos valiosos ensinamentos budistas. Trata-se de um budismo tibetano prêt-à-porter. Segundo o bem-humorado prefaciador Eduardo Bueno, um budismo para a vida cotidiana, para uso diário, sem contraindicações, o pão espiritual nosso de cada dia. Não deixe de ler!",
+    "img": "/src/images/bookimages/img1",
+    "updatedAt": "2023/05/15",
+    "createdAt": "2023/05/15"
+  },
+  {
+    "bookid": 2,
+    "book": "Thew Power of Kindness",
+    "author": "Clóvis de Barros",
+    "category": "Self-Help",
+    "abstract": "What to say about a book that interprets Japanese wisdom and culture thinking about the Western soul? That mixes philosophers like Socrates, Kant and Rousseau; poets like Hesiod, Rilke and Oscar Wilde; writers like Eça de Queiroz, Montaigne and Clarice Lispector and characters like Tieta by Jorge Amado? Who uses knowledge of the world and his own experiences to talk about subjects such as kindness and morals; humility and love; empathy and fraternity; boundaries and consideration? One of the most requested speakers in Brazil, professor Clóvis de Barros Filho wrote a book where he talks to the reader and, without the reader noticing, teaches what, in fact, is important in this life. It could be considered as a Brazilian version of the classic O mundo de Sofia, a novel that tells the story of philosophy. Clóvis uses three characters: the Japanese student Shinsetsu, her Italian friend Moral and the British teacher Mrs. utility. It is through them that we remember that it is time to stop thinking only about ourselves. “When useful, anything gains positive value. If it is of no use, it is of no value to anyone”, says Clóvis de Barros Filho. Shinsetsu, the power of kindness is useful for everyone: men and women, younger and older, poor and rich, western and eastern. If any real transformation in the world begins within oneself, in these times of intolerance and individualism this book is mandatory reading for anyone who wants to start treating others and themselves better.",
+    "img": "/src/images/bookimages/img2",
+    "updatedAt":"2023/05/15",
+    "createdAt":"2023/05/15"
+  },
+  {
+    "bookid": 3,
+    "book": "The Courage To Be Disliked",
+    "author": "Ichiro Kishimi and Fumitake Yoga",
+    "category": "Self-Help",
+    "abstract": "The Japanese phenomenon that teaches us the simple yet profound lessons required to liberate our real selves and find lasting happiness.",
+    "img": "/src/images/bookimages/img3",
+    "updatedAt":"2023/05/15",
+    "createdAt":"2023/05/15"
+  },
+  {
+    "bookid": 4,
+    "book": "BIG DATA - Using Smart Big Data Analytics to Make Better Decisions.",
+    "author": "Bernard Marr",
+    "category": "Technology",
+    "abstract": "There is so much buzz around big data. We all need to know what it is and how it works - that much is obvious. But is a basic understanding of the theory enough to hold your own in strategy meetings? Probably. But what will set you apart from the rest is actually knowing how to USE big data to get solid, real-world business results - and putting that in place to improve performance. Big Data will give you a clear understanding, blueprint, and step-by-step approach to building your own big data strategy. This is a well-needed practical introduction to actually putting the topic into practice. Illustrated with numerous real-world examples from a cross section of companies and organisations, Big Data will take you through the five steps of the SMART model: Start with Strategy, Measure Metrics and Data, Apply Analytics, Report Results, Transform.",
+    "img": "/src/images/bookimages/img4",
+    "updatedAt":"2023/05/15",
+    "createdAt":"2023/05/15"
+  },
+  {
+    "bookid": 5,
+    "book": "Behind Her Eyes",
+    "author": "Sarah Pinborough",
+    "category": "Novel",
+    "abstract": "In Behind Her Eyes, Sarah Pinborough has written a novel that takes the modern day love triangle and not only turns it on its head, but completely reinvents it in a way that will leave readers reeling.",
+    "img": "/src/images/bookimages/img5",
+    "updatedAt":"2023/05/15",
+    "createdAt":"2023/05/15"
+  }
+]

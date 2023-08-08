@@ -6,6 +6,7 @@ import { getBooks } from "../../services/books";
 import { postFavorite } from "../../services/favorites";
 import bookImg from "../../images/livro.png"
 import PlusImg from "../../images/plus.png"
+import { useNavigate } from "react-router-dom";
 
 const SearchComponent = styled.section`
   background-image: linear-gradient(90deg, #c9f0ff, #eafffd);
@@ -87,6 +88,12 @@ function Search() {
   const [searchedBook, setSearchedBook] = useState([]);
   const [books, setBooks] = useState([]);
 
+  const navigate = useNavigate()
+
+  function NavigateToBook (bookId){
+    navigate(`../book/${bookId}`)
+  }
+
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -102,13 +109,17 @@ function Search() {
     // setSearchedBook(booksAPI)
   }
 
+  
+
   async function insertFavorite(id) {
     try {
-      await postFavorite(id);
+      const userKey = localStorage.getItem('userid')
+      await postFavorite(id,userKey);
       alert(`Book with id:${id} was inserted!`);
     } catch (error) {
-      if (error.response && error.response.status === 409) {
-        alert(`Error: Book with id:${id} is already in favorites :)`);
+      console.error(error)
+      if (error.response.data === "Book is already in your favorites!") {
+        alert(`This Book is already in your favorites :)`);
       } else {
         alert("An error occurred while inserting the book.");
       }
@@ -134,8 +145,8 @@ function Search() {
         {searchedBook.map((favorite) => (
           <Result>
             <img width={70} height={80} src={bookImg} alt="plusimg" />
-            <p>{favorite.name}</p>
-            <PlusImage width={35} height={35} src={PlusImg}  onClick={() => insertFavorite(favorite.id)} alt="minusimg" />
+            <p onClick={() => NavigateToBook(favorite.bookid)}>{favorite.name}</p>
+            <PlusImage width={35} height={35} src={PlusImg}  onClick={() => insertFavorite(favorite.bookid)} alt="minusimg" />
           </Result>
         ))}
       </ResultsContainer>
