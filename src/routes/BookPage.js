@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "../components/header/index";
 import BookInfo from "../components/bookinfo";
-
+import Comments from "../components/comments";
 const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
@@ -13,6 +13,7 @@ function BookPage() {
     <AppContainer>
       <Header />
       <BookInfo/>
+      <Comments/>
     </AppContainer>
     
   );

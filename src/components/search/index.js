@@ -77,6 +77,10 @@ const Result = styled.div`
 
   
 `;
+
+const PBook = styled.p `
+cursor:pointer
+`
 const PlusImage = styled.img `
 width:35px;
 height=35px;
@@ -145,7 +149,7 @@ function Search() {
         {searchedBook.map((favorite) => (
           <Result>
             <img width={70} height={80} src={bookImg} alt="plusimg" />
-            <p onClick={() => NavigateToBook(favorite.bookid)}>{favorite.name}</p>
+            <PBook onClick={() => NavigateToBook(favorite.bookid)}>{favorite.name}</PBook>
             <PlusImage width={35} height={35} src={PlusImg}  onClick={() => insertFavorite(favorite.bookid)} alt="minusimg" />
           </Result>
         ))}

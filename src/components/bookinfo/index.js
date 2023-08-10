@@ -11,6 +11,7 @@ const UserField = styled.p`
 `;
 const BookDiv = styled.div`
   margin-top:5%;
+  margin-bottom:5%;
   display: flex;
   width: 100%;
   justify-content: center;
