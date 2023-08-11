@@ -3,18 +3,31 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getComments } from "../../services/comments";
 
-const UserField = styled.p`
+const CommentsTitle = styled.p`
   margin: 0.5%;
   text-align: center;
   color: #6b5e62;
+  font-size:23px
 `;
 const CommentDiv = styled.div`
   display: flex;
   flex-direction:column;
   height:auto;
   width: 100%;
+  background-image: linear-gradient(90deg, #c9f0ff, #eafffd); 
+  align-items: center;
   justify-content: center;
 `;
+
+const Comment2ndDiv = styled.div`
+  display: flex;
+  flex-direction:column;
+  height:auto;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 const Comment = styled.div `
   margin-top: px;
@@ -22,10 +35,11 @@ const Comment = styled.div `
   flex-direction: row;
   width: 100%;
   height:80px;
-  justify-content: left;
-  gap:5px;
+  justify-content: start ;
+  padding-left:20%;
+  padding-right:%;
+  gap:5%;
   align-items:top;
-  background-image: linear-gradient(90deg, #c9f0ff, #eafffd); 
 `
 
 const AuthorCateg = styled.div `
@@ -37,10 +51,13 @@ height:20%
 
 const UserName = styled.h1`
 font-size:15px;
-margin-bottom:0px
+margin-bottom:0px;
+color: #6b5e62
+
 `
 const CommentContent = styled.p `
 font-size:12px;
+color: #6b5e62
 `
 
 function Comments() {
@@ -59,16 +76,18 @@ function Comments() {
 
   return (
     <CommentDiv>
-      <UserField>See what the community thinks about this book!</UserField>
-      {comments.length
-            ? comments.map((comment) => (
-                <Comment>  
-                   <UserName>{comment.user.name}</UserName>
-                  <CommentContent>{comment.content}</CommentContent>
-                </Comment>  
-              ))
-            : <p>You don't have any favorite books yet :/ </p>}  
-    
+      <Comment2ndDiv>
+        <CommentsTitle><strong>See what the community thinks about this book!</strong></CommentsTitle>
+        {comments.length
+              ? comments.map((comment) => (
+                  <Comment>  
+                    <UserName>{comment.user.name}</UserName>
+                    <CommentContent>{comment.content}</CommentContent>
+                  </Comment>  
+                ))
+              : <p>There aren't comments to this book :( </p>}  
+      
+      </Comment2ndDiv>
     </CommentDiv>
         
   );
