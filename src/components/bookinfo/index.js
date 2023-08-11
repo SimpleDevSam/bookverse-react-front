@@ -87,25 +87,34 @@ function BookInfo() {
   }
   
   async function SendComment () {
-    try {
-      const userid = localStorage.getItem('userid')
-      const bookid = id
-      const content = comment
-      const isactive = true
-
-      const commentObject = {
-        userid:userid,
-        bookid:bookid,
-        content:content,
-        isactive:isactive
+    
+    if(!comment===null) {
+      try {
+        const userid = localStorage.getItem('userid')
+        const bookid = id
+        const content = comment
+        const isactive = true
+  
+        const commentObject = {
+          userid:userid,
+          bookid:bookid,
+          content:content,
+          isactive:isactive
+        }
+  
+       
+  
+        await InsertComment(id,commentObject );
+        alert('Comment sent!');
+        setComment('')
+      } catch(error) {
+        alert("Failed to send comment, Please try again :)")
+        setComment('')
       }
-      await InsertComment(id,commentObject );
-      alert('Comment sent!');
-      setComment('')
-    } catch(error) {
-      alert("Failed to send comment, Please try again :)")
-      setComment('')
+    } else {
+      alert("You can't send empty comments :)")
     }
+    
   }
 
   async function fetchBook() {
