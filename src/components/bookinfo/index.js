@@ -88,7 +88,7 @@ function BookInfo() {
   
   async function SendComment () {
     
-    if(!comment===null) {
+    if(comment!=='') {
       try {
         const userid = localStorage.getItem('userid')
         const bookid = id
@@ -101,9 +101,6 @@ function BookInfo() {
           content:content,
           isactive:isactive
         }
-  
-       
-  
         await InsertComment(id,commentObject );
         alert('Comment sent!');
         setComment('')
