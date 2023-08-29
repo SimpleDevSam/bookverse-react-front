@@ -103,6 +103,7 @@ function BookInfo() {
         }
         await InsertComment(id,commentObject );
         alert('Comment sent!');
+        
         setComment('')
       } catch(error) {
         alert("Failed to send comment, Please try again :)")
