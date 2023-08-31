@@ -4,6 +4,7 @@ import { getBook } from "../../services/books";
 import { InsertComment } from "../../services/comments";
 import styled from "styled-components";
 import BookImg from "../../images/bookimages/img1.jpg"
+import {getAllFavorites} from "../../services/favorites";
 
 const TextField = styled.p`
   margin: 0.5%;
@@ -80,6 +81,7 @@ function BookInfo() {
   const {id} = useParams();
   const [book, setBook] = useState(null);
   const [comment, setComment] = useState('');
+  const [count, setCount] = useState(null);
 
   function CommentHandle (event) {
     setComment(event.target.value)
@@ -128,9 +130,25 @@ function BookInfo() {
     setBook(book);
   }
 
+  async function fetchFavs() {
+    console.log("Trying to get favcount of id:" + id)
+    const bookscount = await getAllFavorites(id);
+    const count = bookscount[0].count
+    console.log(count)
+    console.log("Fav fetching");
+    ;
+
+    setCount(count);
+  }
+  useEffect(() => {
+    fetchFavs();
+  }, []);
+
   useEffect(() => {
     fetchBook();
   }, []);
+  
+ 
 
   return (
     <BookDiv>
@@ -140,6 +158,7 @@ function BookInfo() {
       <AuthorCateg>
         <TextField>{book ? <TextField><strong>Author:</strong> {book.author}</TextField> : 'Loading...'}</TextField>
         <TextField>{book ? <TextField><strong>Category:</strong>  {book.category}</TextField> : 'Loading...'}</TextField>
+        <TextField>{count ? <TextField>This book has: <strong>{count}</strong>  Favorites</TextField> : 'Loading...'}</TextField>
       </AuthorCateg>
         <TextField>{book ? <TextField>{book.abstract}</TextField> : 'Loading...'}</TextField>
         <AddCommentDiv>
