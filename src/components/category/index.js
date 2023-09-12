@@ -109,7 +109,7 @@ function Category() {
           {books.filter((book)=> book.category === category ).map((book) => (
           <Result onClick={() => insertFavorite(book.id)}>
             <p>{book.name}</p>
-            <img width={70} height={80} src={bookImg} />
+            <img width={70} height={80} src={`/bookimages/img${book.bookid}.jpg`} />
           </Result>
           
         ))}

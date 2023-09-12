@@ -126,7 +126,7 @@ function Favorites() {
             ? favorites.map((favorite) => (
                 <Result >
                   <div>
-                    <BookImage src={bookImg} />
+                    <BookImage src={`/bookimages/img${favorite.bookid}.jpg`} />
                     <p onClick={() => NavigateToBook(favorite.bookid)}>{favorite.name}</p>
                   </div>  
                   <MinusImage src={MinusImg}  onClick={()=> removeFavorite(favorite.id)} />

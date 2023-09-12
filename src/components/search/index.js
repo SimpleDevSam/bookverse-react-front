@@ -129,6 +129,7 @@ function Search() {
       }
     }
   }
+
   return (
     <SearchComponent>
       <Title>Let's get started?</Title>
@@ -148,7 +149,7 @@ function Search() {
       <ResultsContainer>
         {searchedBook.map((favorite) => (
           <Result>
-            <img width={70} height={80} src={bookImg} alt="plusimg" />
+            <img width={70} height={80} src={`/bookimages/img${favorite.bookid}.jpg`} alt="plusimg" />
             <PBook onClick={() => NavigateToBook(favorite.bookid)}>{favorite.name}</PBook>
             <PlusImage width={35} height={35} src={PlusImg}  onClick={() => insertFavorite(favorite.bookid)} alt="minusimg" />
           </Result>

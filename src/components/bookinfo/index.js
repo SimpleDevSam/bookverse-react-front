@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { getBook } from "../../services/books";
 import { InsertComment } from "../../services/comments";
 import styled from "styled-components";
-import BookImg from "../../images/bookimages/img1.jpg"
 import {getAllFavorites} from "../../services/favorites";
 
 const TextField = styled.p`
@@ -74,7 +73,6 @@ margin-bottom:0px
 `
 
 const BookImage = styled.img `
-magin:10%
 `
 
 function BookInfo() {
@@ -82,6 +80,8 @@ function BookInfo() {
   const [book, setBook] = useState(null);
   const [comment, setComment] = useState('');
   const [count, setCount] = useState(null);
+
+  const imageUrl = `/bookimages/img${id}.jpg`
 
   function CommentHandle (event) {
     setComment(event.target.value)
@@ -152,7 +152,7 @@ function BookInfo() {
 
   return (
     <BookDiv>
-      <BookImage src={BookImg}></BookImage>
+      <BookImage src={imageUrl} alt="Book Image "></BookImage>
       <InfoDiv>
       <TitleText>{book ? <TextField>{book.name}</TextField> : 'Loading...'}</TitleText>
       <AuthorCateg>
